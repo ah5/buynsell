@@ -1,7 +1,7 @@
-package buyNsell.Utils.Solvers;
+package com.buynsell.utils.solvers;
 
-import buyNsell.BusinessObjects.*;
-import buyNsell.DatabaseConnection.*;
+import com.buynsell.businessobjects.*;
+import com.buynsell.databaseconnection.*;
 
 import java.util.*;
 
@@ -13,12 +13,12 @@ public class AuctionSolver
 	Bid bid=null;
 	BidDetails bidDetail=null;
 	
-	ArrayList productsInCatalog=null;
-	ArrayList allBids=null;
-	ArrayList bidDetails=null;
-	ArrayList winningBids=null;
+	ArrayList<Product> productsInCatalog=null;
+	ArrayList<Bid> allBids=null;
+	ArrayList<BidDetails> bidDetails=null;
+	ArrayList<Bid> winningBids=null;
 	
-	ArrayList raw=null;
+	ArrayList<?> raw=null;
 	
 	int topBidLocator=0;
 	int topBidPrice=0;
@@ -28,14 +28,14 @@ public class AuctionSolver
 	{
 	}
 	
-	public ArrayList solve(String catalogID)
+	public ArrayList<?> solve(String catalogID)
 	{
 		//loading auction details , catalog details , product details , bids for concerned auction
 		auction				=	JdbcData.loadAuction(catalogID);
 		catalog				=	JdbcData.loadCatalog(catalogID);
 		productsInCatalog	=	JdbcData.loadProduct(catalogID);
 		allBids				=	JdbcData.loadBids(auction.getAuctionid());
-		winningBids=new ArrayList();
+		winningBids=new ArrayList<Bid>();
 		
 		
 		while(allBids.size() > 0)

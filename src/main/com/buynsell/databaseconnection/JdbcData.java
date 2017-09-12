@@ -1,9 +1,7 @@
-package buyNsell.DatabaseConnection;
+package com.buynsell.databaseconnection;
 
-import buyNsell.BusinessObjects.*;
-import java.sql.*;
+import com.buynsell.businessobjects.*;
 import java.util.*;
-import java.lang.*;
 
 public class JdbcData 
 {
@@ -11,10 +9,10 @@ public class JdbcData
 	{
 		Users users=null;
 		String sql="select * from users where UserID='"+userID+"'";
-		ArrayList arr=JdbcUtil.exeQuery(sql);
+		ArrayList<?> arr=JdbcUtil.exeQuery(sql);
 		if(arr.size()>0)
 		{
-			ArrayList raw=(ArrayList)arr.get(0);
+			ArrayList<?> raw=(ArrayList)arr.get(0);
 			users=new Users(raw);
 		}
 		return users;	
