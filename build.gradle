@@ -1,0 +1,29 @@
+apply plugin: 'base'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+    }
+}
+
+apply plugin: 'java'
+
+version = '1.0.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+/*
+apply plugin: 'war'
+war {
+	manifest {
+		attributes 'Implementation-Title': 'Hello World'
+		attributes 'Implementation-Version': version
+		attributes 'Main-Class': 'com.sample.HelloWorld'
+	}
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	baseName = project.name
+	destinationDir = file(artifactDir)
+}
+*/
