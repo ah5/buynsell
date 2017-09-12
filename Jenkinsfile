@@ -7,7 +7,7 @@ node {
 	}
 
 	stage('Build'){
-		sh "./gradlew tasks"
+		sh "gradle tasks"
 	}
 
 }
