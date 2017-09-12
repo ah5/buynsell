@@ -1,4 +1,4 @@
-package buyNsell.AdminLogin;
+package com.buynsell.adminlogin;
 
 import buyNsell.AccountOperations.*;
 import buyNsell.BusinessObjects.*;

@@ -1,4 +1,4 @@
-package buyNsell.AccountOperations.SellerOperations.CatalogPosting;
+package com.buynsell.accountoperations.selleroperations.catalogposting;
 
 import org.apache.struts.action.*;
 import javax.servlet.http.*;

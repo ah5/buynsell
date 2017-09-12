@@ -1,4 +1,4 @@
-package buyNsell.BusinessObjects;
+package com.buynsell.businessobjects;
 
 import java.util.*;
 

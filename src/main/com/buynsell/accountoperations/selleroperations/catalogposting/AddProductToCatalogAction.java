@@ -1,7 +1,7 @@
-package buyNsell.AccountOperations.SellerOperations.CatalogPosting;
+package com.buynsell.accountoperations.selleroperations.catalogposting;
 
-import buyNsell.DatabaseConnection.*;
-import buyNsell.BusinessObjects.*;
+import com.buynsell.databaseconnection.*;
+import com.buynsell.businessobjects.*;
 
 import org.apache.struts.action.*;
 import javax.servlet.http.*;
