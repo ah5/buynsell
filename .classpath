@@ -3,5 +3,21 @@
 	<classpathentry kind="src" path="src/test"/>
 	<classpathentry kind="src" path="src/main"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/quartz.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-collections.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-digester.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-fileupload.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-lang.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-validator.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jakarta-oro.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/mail.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/mysql-connector-java-3.0.11-stable-bin.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/rchart.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/struts.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/tiles.jar"/>
 	<classpathentry kind="output" path="build/bin"/>
 </classpath>

@@ -1,12 +1,19 @@
-package buyNsell.Utils.AuctionScheduler;
+package com.buynsell.utils.auctionsheduler;
 
-import buyNsell.Utils.*;
-import buyNsell.BusinessObjects.*;
-import buyNsell.DatabaseConnection.*;
+import java.util.ArrayList;
 
-import org.quartz.*;
-import org.quartz.impl.*;
-import java.util.*;
+import org.quartz.Job;
+import org.quartz.JobDataMap;
+import org.quartz.JobDetail;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+
+import com.buynsell.businessobjects.Auction;
+import com.buynsell.businessobjects.Catalog;
+import com.buynsell.businessobjects.Product;
+import com.buynsell.businessobjects.Users;
+import com.buynsell.databaseconnection.JdbcData;
+import com.buynsell.utils.Mailer;
 
 public class StartAuctionsJob implements Job
 {

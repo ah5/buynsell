@@ -1,10 +1,14 @@
-package buyNsell.Utils.AuctionScheduler;
+package com.buynsell.utils.auctionsheduler;
 
-import buyNsell.BusinessObjects.*;
-import buyNsell.DatabaseConnection.*;
-import java.util.*;
-import org.quartz.*;
-import org.quartz.impl.*;
+import org.quartz.JobDataMap;
+import org.quartz.JobDetail;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerFactory;
+import org.quartz.SimpleTrigger;
+import org.quartz.impl.StdSchedulerFactory;
+
+import com.buynsell.businessobjects.Auction;
+import com.buynsell.databaseconnection.JdbcUtil;
 
 public class AutoScheduler
 {
