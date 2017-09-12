@@ -1,6 +1,7 @@
 .gradle
 /build/
 builds/
+war/WEB-INF/classes/*
 
 # Ignore Gradle GUI config
 gradle-app.setting
