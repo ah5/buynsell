@@ -1,49 +1,43 @@
-package buyNsell.BusinessObjects;
+package com.buynsell.businessobjects;
 
-import java.util.*;
-
-public class ResponseMessage
-{
+public class ResponseMessage {
 	protected String type;
 	protected String heading;
 	protected String content;
 	protected String footing;
-	
-	public ResponseMessage(){}
 
-	public String getType()
-	{	
-		return this.type;	
+	public ResponseMessage() {
 	}
-	public void setType(String type)
-	{
-		this.type=type;
+
+	public String getType() {
+		return this.type;
 	}
-	
-	public String getHeading()
-	{	
-		return this.heading;	
+
+	public void setType(String type) {
+		this.type = type;
 	}
-	public void setHeading(String heading)
-	{
-		this.heading=heading;
+
+	public String getHeading() {
+		return this.heading;
 	}
-	
-	public String getContent()
-	{	
-		return this.content;	
+
+	public void setHeading(String heading) {
+		this.heading = heading;
 	}
-	public void setContent(String content)
-	{
-		this.content=content;
+
+	public String getContent() {
+		return this.content;
 	}
-	
-	public String getFooting()
-	{	
-		return this.footing;	
+
+	public void setContent(String content) {
+		this.content = content;
 	}
-	public void setFooting(String footing)
-	{
-		this.footing=footing;
+
+	public String getFooting() {
+		return this.footing;
+	}
+
+	public void setFooting(String footing) {
+		this.footing = footing;
 	}
 }

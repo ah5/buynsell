@@ -1,47 +1,43 @@
-package buyNsell.BusinessObjects;
+package com.buynsell.businessobjects;
 
-import java.util.*;
+import java.util.ArrayList;
 
-public class CreditCard  
-{
+public class CreditCard {
 	protected String ccnumber;
 	protected String cctype;
 	protected String ccexpiry;
-		
-	public CreditCard(){}
-	
-	public CreditCard (ArrayList raw)
-	{
-		this.ccnumber	=(String)raw.get(1);
-		this.cctype		=(String)raw.get(2);
-		this.ccexpiry	=(String)raw.get(3);
+
+	public CreditCard() {
 	}
-	
-	public String getCCnumber()
-	{
+
+	public CreditCard(ArrayList<?> raw) {
+		this.ccnumber = (String) raw.get(1);
+		this.cctype = (String) raw.get(2);
+		this.ccexpiry = (String) raw.get(3);
+	}
+
+	public String getCCnumber() {
 		return this.ccnumber;
 	}
-	public void setCCnumber(String ccnumber)
-	{
-		this.ccnumber=ccnumber;
+
+	public void setCCnumber(String ccnumber) {
+		this.ccnumber = ccnumber;
 	}
-	
-	public String getCCtype()
-	{
+
+	public String getCCtype() {
 		return this.cctype;
 	}
-	public void setCCtype(String cctype)
-	{
-		this.cctype=cctype;
+
+	public void setCCtype(String cctype) {
+		this.cctype = cctype;
 	}
-	
-	public String getCCexpiry()
-	{
+
+	public String getCCexpiry() {
 		return this.ccexpiry;
 	}
-	public void setCCexpiry(String ccexpiry)
-	{
-		this.ccexpiry=ccexpiry;
+
+	public void setCCexpiry(String ccexpiry) {
+		this.ccexpiry = ccexpiry;
 	}
-	
+
 }
