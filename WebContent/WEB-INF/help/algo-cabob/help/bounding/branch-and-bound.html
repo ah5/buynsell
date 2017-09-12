@@ -1,0 +1,55 @@
+<HTML>
+
+<HEAD>
+<TITLE>Branch and Bound</TITLE>
+<link rev="made" href="mailto:wehart@cs.sandia.gov">
+</HEAD>
+
+<BODY bgcolor="#ffffff">
+
+<center> <H1>Branch and Bound</H1> </center> <hr>
+
+<P> Branch and Bound is a general search method.  Suppose we wish to
+minimize a function f(x),
+where x is restricted to some feasible region (defined, e.g., by
+explicit mathematical constraints).  To apply branch and bound, one
+must have a means of computing a lower bound on an instance of the
+optimization problem and a means of dividing the feasible region of a
+problem to create smaller subproblems.  There must also be a way to
+compute an upper bound (feasible solution) for at least some
+instances;  for practical purposes, it should be possible to compute
+upper bounds for some set of nontrivial feasible regions. </P>
+
+<P> The method starts by considering the original problem with
+the complete feasible region, which is called the root problem.  The
+lower-bounding and upper-bounding procedures are applied to the root
+problem.  If the bounds match, then an optimal solution has been
+found and the procedure terminates.  Otherwise, the feasible region is
+divided into two or more regions, each strict subregions of the
+original, which together cover the whole feasible region;  ideally,
+these subproblems partition the feasible region.  These subproblems
+become children of the root search node.  The algorithm is applied
+recursively to the subproblems, generating a tree of subproblems.  If
+an optimal solution is found to a subproblem, it is a feasible
+solution to the full problem, but not necessarily globally optimal.
+Since it is feasible, it can be used to prune the rest of the tree: if
+the lower bound for a node exceeds the best known feasible solution,
+no globally optimal solution can exist in the subspace of the feasible
+region represented by the node.  Therefore, the node can be removed
+from consideration.  The search proceeds until all nodes have been
+solved or pruned, or until some specified threshold is meet between
+the best solution found and the lower bounds on all unsolved
+subproblems.  </P>
+
+<hr>
+
+</BODY>
+
+<ADDRESS>
+<A HREF="main.html">Global Optimization Survey - Main Page</A><BR>
+<A HREF="http://www.sandia.gov">Sandia National Laboratories</A><BR><br>
+This page maintained by <A HREF="mailto:wehart@cs.sandia.gov">wehart@cs.sandia.gov</A>
+</ADDRESS>
+Last modified: March 10, 1997
+
+</HTML>

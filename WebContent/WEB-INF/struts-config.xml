@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean
+		name="userRegistrationForm"
+		type="buyNsell.UserRegistration.UserRegistrationForm"/>
+		
+		<form-bean
+		name="userLoginForm"
+		type="buyNsell.UserLogin.UserLoginForm"/>
+		
+		<form-bean
+		name="itemSearchForm"
+		type="buyNsell.ItemSearch.ItemSearchForm"/>
+		
+		<form-bean
+		name="catalogPostForm"
+		type="buyNsell.AccountOperations.SellerOperations.CatalogPosting.CatalogPostForm"/>
+		
+		<form-bean
+		name="addProductToCatalogForm"
+		type="buyNsell.AccountOperations.SellerOperations.CatalogPosting.AddProductToCatalogForm"/>
+		
+		<form-bean
+		name="selectAuctionFormForStatus"
+		type="buyNsell.AccountOperations.SellerOperations.SellerSelectAuctionForm"/>
+		
+		<form-bean
+		name="bidForAuctionForm"
+		type="buyNsell.AccountOperations.BuyerOperations.BidPosting.BidForAuctionForm"/>
+		
+		<form-bean
+		name="selectAuctionFormForBidding"
+		type="buyNsell.AccountOperations.BuyerOperations.SelectAuctionForm"/>
+		
+		<form-bean
+		name="bidPostForm"
+		type="buyNsell.AccountOperations.BuyerOperations.BidPosting.BidPostForm"/>
+		
+		<form-bean
+		name="changePasswordForm"
+		type="buyNsell.AccountOperations.ChangePasswordForm"/>
+		
+		<form-bean
+		name="adminSelectUserForm"
+		type="buyNsell.AdminLogin.AdminSelectUserForm"/>
+		
+		<form-bean
+		name="adminSelectAuctionForm"
+		type="buyNsell.AdminLogin.AdminSelectAuctionForm"/>
+		
+		<form-bean
+		name="listCategoryForm"
+		type="buyNsell.ItemSearch.ListCategoryForm"/>
+		
+		<form-bean
+		name="creditCardEditForm"
+		type="buyNsell.AccountOperations.CreditCardEditForm"/>
+		
+	</form-beans>
+
+    <global-forwards>
+    	<!--general forwards-->
+        <forward	name="welcome"			path="/Welcome.do"/>
+        <forward	name="home"				path="/Welcome.do"/>
+        <forward	name="admin"			path="/AskAdminPass.do"/>
+        <forward 	name="register"			path="/Register.do"/>
+        <forward 	name="about"			path="/About.do"/>
+        
+        <!--account forwards-->
+		<forward	name="CatalogDone" 				path="/AccountHome.do"/>
+        <forward	name="postingACatalog"			path="/PostingACatalog.do"/>
+        <forward 	name="viewAuctions"				path="/ViewAuctions.do"/>
+        <forward 	name="viewAvailableAuctions" 	path="/ViewAvailableAuctions.do"/>
+        <forward	name="accountHome"				path="/AccountHome.do"/>
+        <forward	name="changePassword"			path="/ChangePassword.do"/>
+        <forward	name="creditCardDetails"		path="/CreditCardDetails.do"/>
+        <forward	name="logout"					path="/UserLogout.do"/>
+        
+        <!--admin forwards-->        
+        <forward	name="adminRequestsLogout" 		path="/AdminRequestsLogout.do"/>
+        <forward	name="adminRequestsManageUsers" path="/AdminRequestsManageUsers.do"/>
+        <forward	name="backToAdminHome" 			path="/BackToAdminHome.do"/>	
+        <forward	name="adminRequestsResetUser"	path="/AdminRequestsResetUser.do"/>
+        <forward	name="adminRequestsManageAuctions"	path="/AdminRequestsManageAuctions.do"/>
+        <forward	name="adminViewsAuctionTimers"		path="/AdminViewsAuctionTimers.do"/>
+        <forward	name="adminChangesPassword"			path="/AdminChangesPassword.do"/>
+        <forward	name="adminSettings"			path="/AdminSettings.do"/>
+        <forward 	name="adminAbout"			path="/AdminRequestsAbout.do"/>
+    </global-forwards>
+
+    <action-mappings>
+    	<!--general mappings-->
+    	<action path="/AccountHome"
+    			type="org.apache.struts.actions.ForwardAction"
+    			parameter=".userloginsuccess"/>
+    	
+    	<action path="/About"
+    			type="org.apache.struts.actions.ForwardAction"
+    			parameter=".about"/>
+    	
+        <action	path="/Welcome"
+        		type="org.apache.struts.actions.ForwardAction"
+				parameter=".welcome"/>
+				
+		<action path="/Register"
+				type="org.apache.struts.actions.ForwardAction"
+				parameter=".register"/>
+		
+		<action path="/ItemSearch"
+	    		type="buyNsell.ItemSearch.ItemSearchAction"
+	    		name="itemSearchForm"
+	    		scope="session"
+	    		input="/pages/linker.jsp">
+	    	<forward name="success" path=".itemsearchsuccess"/>	
+	    	<forward name="failure" path=".commonresponse"/>
+	    </action>
+	    	
+		<action path="/UserRegistration"
+				type="buyNsell.UserRegistration.UserRegistrationAction"
+				name="userRegistrationForm"
+				scope="session"
+	            input="/pages/RegistrationForm.jsp">
+	    	<forward name="response" path=".commonresponse"/>
+	    </action>
+		
+		<action path="/UserLogin"
+				type="buyNsell.UserLogin.UserLoginAction"
+				name="userLoginForm"
+				scope="session"
+	            input="/pages/linker.jsp">
+	    	<forward name="success" path=".userloginsuccess"/>
+	    	<forward name="failure" path=".commonresponse"/>
+	    </action>
+	    
+	    <action path="/AdminLogin"
+				type="buyNsell.AdminLogin.AdminLoginAction"
+				name="userLoginForm"
+				scope="session"
+	            input="/pages/AskAdminPass.jsp">
+	    	<forward name="success" path=".adminloginsuccess"/>
+	    	<forward name="failure" path=".commonresponse"/>
+	    </action>
+	    
+	    <action path="/ListCategory"
+	    		type="buyNsell.ItemSearch.ListCategoryAction"
+	    		name="listCategoryForm"
+	    		scope="request"
+	    		input="/pages/home.jsp">
+	    	<forward name="success" path=".categorywiselisting"/>
+	    	<forward name="failure" path=".commonresponse"/>
+	    </action>
+	    
+	    
+	    
+	    
+	    
+	    <!-- account related mappings -->
+	    <action path="/AccountHome"
+	    		type="org.apache.struts.actions.ForwardAction"
+	    		parameter=".userloginsuccess"/>
+	    
+	    <action path="/CreditCardDetails"
+	    		type="org.apache.struts.actions.ForwardAction"
+	    		parameter=".creditcarddetails"/>
+	    
+	    <action path="/ViewAuctions"
+	    		type="org.apache.struts.actions.ForwardAction"
+	    		parameter=".viewauctions"/>
+	    
+	    <action path="/ViewAvailableAuctions"
+	    		type="org.apache.struts.actions.ForwardAction"
+	    		parameter=".viewavailableauctions"/>
+	    
+	    <action path="/PostingACatalog"
+	    		type="org.apache.struts.actions.ForwardAction"
+				parameter=".postingacatalog"/>
+	    
+	    <action path="/AddCreditCard"
+	    		type="buyNsell.AccountOperations.CreditCardAddAction"
+	    		name="creditCardEditForm"
+	    		scope="session"
+	    		input="/pages/CreditCardForm.jsp">
+	    	<forward name="response" path=".response"/>
+		</action>
+	    		
+	    <action path="/EditCreditCard"
+	    		type="buyNsell.AccountOperations.CreditCardEditAction"
+	    		name="creditCardEditForm"
+	    		scope="session"
+	    		input="/pages/CreditCardForm.jsp">
+	    	<forward name="response" path=".response"/>
+		</action>
+	    
+	    <action path="/ChangePassword"
+				type="org.apache.struts.actions.ForwardAction"
+	    		parameter=".changepassword"/>
+		
+		<action path="/ConfirmChangePassword"
+				type="buyNsell.AccountOperations.ChangePasswordAction"
+				name="changePasswordForm"
+				scope="session"
+				input="/pages/ChangePassword.jsp">
+			<forward name="response" path=".response"/>
+		</action>
+					    
+	    <action path="/UserLogout"
+	    		type="buyNsell.UserLogin.UserLogoutAction"
+	    		scope="session"
+	    		input="/pages/accountLinker.jsp">
+	    	<forward name="response" path=".commonresponse"/>
+	    </action>
+	    
+	    <action path="/PostCatalog"
+	    		type="buyNsell.AccountOperations.SellerOperations.CatalogPosting.CatalogPostAction"
+	    		name="catalogPostForm"
+	    		scope="session"
+	    		input="/pages/CatalogForm.jsp">
+	    	<forward name="success" path=".postcatalogsuccess"/>
+	    	<forward name="failure" path=".response"/>
+	    </action>
+	    
+	    <action path="/AddProductToCatalog"
+	    		type="buyNsell.AccountOperations.SellerOperations.CatalogPosting.AddProductToCatalogAction"
+	    		name="addProductToCatalogForm"
+	    		scope="session"
+	    		input="/pages/CatalogPostSuccess.jsp">
+	    	<forward name="success" path=".postcatalogsuccess"/>
+	    	<forward name="failure" path=".postcatalogfailure"/>
+	    </action>
+	    
+	    <action path="/SelectAuctionForBidding"
+	    		type="buyNsell.AccountOperations.BuyerOperations.SelectAuctionAction"
+	    		name="selectAuctionFormForBidding"
+	    		scope="session"
+	    		input="/pages/ViewAvailableAuctions.jsp">
+	    	<forward name="success" path=".bidforauction"/>
+	    	<forward name="failure" path=".response"/>
+	    </action>
+	    
+	    <action path="/SelectAuctionForStatus"
+	    		type="buyNsell.AccountOperations.SellerOperations.SellerSelectAuctionAction"
+	    		name="selectAuctionFormForStatus"
+	    		scope="session"
+	    		input="/pages/ViewAuctions.jsp">
+	    	<forward name="success" path=".statusforauction"/>
+	    	<forward name="failure" path=".response"/>
+	    </action>
+	    
+	    <action path="/BidForAuction"
+	    		type="buyNsell.AccountOperations.BuyerOperations.BidPosting.BidForAuctionAction"
+	    		name="bidForAuctionForm"
+	    		scope="session"
+	    		input="/pages/ViewAvailableAuctions.jsp">
+	    	<forward name="success" path=".bidforauction"/>
+	    </action>
+	    
+	    <action path="/PostBid"
+	    		type="buyNsell.AccountOperations.BuyerOperations.BidPosting.BidPostAction"
+	    		name="bidPostForm"
+	    		scope="session"
+	    		input="/pages/BidForAuctionForm.jsp">
+	    	<forward name="response" path=".response"/>
+	    </action>
+	    
+	    
+	    	
+	    	
+	    <!-- admin related mappings -->
+	    	
+	    <action path="/AdminRequestsAbout"	
+	    		type="org.apache.struts.actions.ForwardAction"
+        		parameter=".adminrequestsabout"/>
+        		
+	    <action path="/AskAdminPass"
+        		type="org.apache.struts.actions.ForwardAction"
+        		parameter=".askadminpass"/>
+        		
+        <action path="/AdminRequestsManageUsers"
+        		type="org.apache.struts.actions.ForwardAction"
+        		parameter=".manageusers"/>
+        		
+        <action path="/BackToAdminHome"		
+        		type="org.apache.struts.actions.ForwardAction"
+        		parameter=".adminloginsuccess"/>
+        		
+        <action path="/AdminRequestsLogout"
+        		type="buyNsell.AdminLogin.AdminLogoutAction"
+	    		scope="session"
+	    		input="/pages/AdminHome.jsp">
+	    	<forward name="response" path=".askadminpass"/>
+	    </action>
+	    
+	    <action path="/AdminRequestsUser"
+	    		type="buyNsell.AdminLogin.AdminSelectUserAction"
+	    		name="adminSelectUserForm"
+	    		scope="session"
+	    		input="/pages/AdminManageUsers.jsp">
+	    	<forward name="success" path=".selecteduser"/>
+	    </action>
+		
+		<action path="/AdminRequestsResetUser"
+        		type="buyNsell.AdminLogin.AdminResetUserPasswordAction"
+	    		scope="session"
+	    		input="/pages/AdminManageUsers.jsp">
+	    	<forward name="success" path=".manageusers"/>
+	    </action>
+	    
+	    <action path="/AdminRequestsManageAuctions"
+        		type="org.apache.struts.actions.ForwardAction"
+        		parameter=".manageauctions"/>
+        		
+        <action path="/AdminViewsAuctionTimers"	
+        		type="org.apache.struts.actions.ForwardAction"
+        		parameter=".adminviewsauctiontimers"/>
+        
+        <action path="/AdminSettings"
+        		type="org.apache.struts.actions.ForwardAction"
+        		parameter=".adminsettings"/>
+        
+        <action path="/AdminChangesPassword"
+        		type="org.apache.struts.actions.ForwardAction"
+        		parameter=".adminchangespassword"/>
+        		
+        <action path="/ConfirmAdminChangePassword"
+        		type="buyNsell.AdminLogin.AdminChangePasswordAction"
+				name="changePasswordForm"
+				scope="session"
+				input="/pages/AdminChangesPassword.jsp">
+			<forward name="success" path=".adminchangespassword"/>
+		</action>
+        		
+        
+	    <action path="/AdminRequestsAuction"
+	    		type="buyNsell.AdminLogin.AdminSelectAuctionAction"
+	    		name="adminSelectAuctionForm"
+	    		scope="session"
+	    		input="/pages/AdminManageAuctions.jsp">
+	    	<forward name="success" path=".selectedauction"/>
+	    </action>
+		
+		<action path="/AdminRequestsUserAuctions"
+				type="buyNsell.AdminLogin.AdminSelectUserAction"
+	    		name="adminSelectUserForm"
+	    		scope="session"
+	    		input="/pages/AdminManageAuctions.jsp">
+	    	<forward name="success" path=".selectedusersauctions"/>
+	    </action>
+		
+	</action-mappings>
+	
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+    <message-resources parameter="resources.application"/>
+	
+	<!-- comment following if struts1.0.x -->
+   	<plug-in className="org.apache.struts.tiles.TilesPlugin" >
+    	<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+    	<set-property property="moduleAware" value="true" />
+    	<set-property property="definitions-parser-validate" value="true" />
+  	</plug-in>
+  	<!-- end comment if struts1.0.x -->
+  	
+  	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    	<set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+  	</plug-in>
+
+</struts-config>
+

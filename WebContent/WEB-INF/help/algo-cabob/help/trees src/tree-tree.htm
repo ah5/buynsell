@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Code Fragment</title>
+</head>
+
+<body text=#000000>
+<center>
+</center><br><br><dl><dd><pre>
+
+<font color=#ff0080>/**
+ * An interface for a tree where nodes can have an arbitrary number of children.
+ */</font>
+<font color=#8000a0>public</font> <font color=#8000a0><font color=#ff8000>interface</font> </font>Tree {
+  <font color = #ff0080>/** Returns the number of nodes in the tree. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font><font color=#8000a0>int</font> <font color=#0000ff>size</font>();
+  <font color = #ff0080>/** Returns whether the tree is empty. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font><font color=#8000a0>boolean</font> <font color=#0000ff>isEmpty</font>();
+  <font color = #ff0080>/** Return an iterator of the elements stored in the tree. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font>Iterator <font color=#0000ff>elements</font>();
+  <font color = #ff0080>/** Returns an iterator of the nodes stored in the tree. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font>Iterator <font color=#0000ff>positions</font>();
+  <font color = #ff0080>/** Replaces the element stored at a given node. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font>Object <font color=#0000ff>replace</font>(Position v, <font color=#8000a0>Object </font>e)
+    <font color=#8000a0><font color=#ff8000>throws</font> </font>InvalidPositionException;
+  <font color = #ff0080>/** Returns the root of the tree. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font>Position <font color=#0000ff>root</font>() <font color=#8000a0><font color=#ff8000>throws</font> </font>EmptyTreeException;
+  <font color = #ff0080>/** Returns the parent of a given node. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font>Position <font color=#0000ff>parent</font>(Position v)
+    <font color=#8000a0><font color=#ff8000>throws</font> </font>InvalidPositionException, BoundaryViolationException;
+  <font color = #ff0080>/** Returns an iterator of the children of a given node. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font>Iterator <font color=#0000ff>children</font>(Position v) 
+    <font color=#8000a0><font color=#ff8000>throws</font> </font>InvalidPositionException;
+  <font color = #ff0080>/** Returns whether a given node is internal. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font><font color=#8000a0>boolean</font> <font color=#0000ff>isInternal</font>(Position v) 
+    <font color=#8000a0><font color=#ff8000>throws</font> </font>InvalidPositionException;
+  <font color = #ff0080>/** Returns whether a given node is external. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font><font color=#8000a0>boolean</font> <font color=#0000ff>isExternal</font>(Position v) 
+    <font color=#8000a0><font color=#ff8000>throws</font> </font>InvalidPositionException;
+  <font color = #ff0080>/** Returns whether a given node is the root of the tree. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font><font color=#8000a0>boolean</font> <font color=#0000ff>isRoot</font>(Position v)
+    <font color=#8000a0><font color=#ff8000>throws</font> </font>InvalidPositionException;
+}
+</dl>
+</body>
+</html>

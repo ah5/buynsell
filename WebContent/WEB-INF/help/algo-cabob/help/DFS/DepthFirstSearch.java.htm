@@ -1,0 +1,72 @@
+// DepthFirstSearch.java
+//
+// Copyright Mark Watson, 1998.  Open Source and Open Content.
+//
+
+import java.util.Vector;
+
+public class DepthFirstSearch extends SearchApplet {
+
+    public void init() {
+
+	// Define a test network before calling the super class 'init':
+	addNode("0", 0.0f, 0.0f);
+	addNode("1", 1.0f, 1.0f);
+	addNode("2", 5.0f, 2.0f);
+	addNode("3", 2.0f, 5.0f);
+	addNode("4", 7.0f, 5.0f);
+	addNode("5", 8.0f, 8.0f);
+	addNode("6", 10.0f, 5.0f);
+	addNode("7", 8.0f, 2.0f);
+	addNode("8", 12.0f, 8.0f);
+	addNode("9", 13.0f, 5.0f);
+
+	addLink(0,1);
+	addLink(1,2);
+	addLink(2,3);
+	addLink(2,4);
+	addLink(4,5);
+	addLink(4,6);
+	addLink(6,8);
+	addLink(8,9);
+	addLink(2,7);
+	addLink(7,9);
+
+	// Now that we have defined the network to search, we
+	// can now call the super class init:
+	super.init();
+    }
+
+    /** findPath - abstract method in super class */
+    public int [] findPath(int node_1, int node_2) { // return an array of node indices
+	System.out.println("Entered DepthFirstSearch.findPath(" +
+			   node_1 + ", " + node_2 + ")");
+	num_path = 1;
+	path[0] = node_1; // the starting node
+	return findPathHelper(path, 1, node_2);
+    }
+
+    public int [] findPathHelper(int [] path, int num_path, int goal_node) {
+	System.out.println("Entered DepthFirstSearch.findPathHelper(...," +
+			   num_path + ", " + goal_node + ")");
+	System.out.println("ici1");
+	repaintPath(path, num_path);
+	if (goal_node == path[num_path - 1]) {
+	    int [] ret = new int[num_path];
+	    for (int i=0; i<num_path ;="" i="" ret[i="path[i];" system.out.println="" ici2="" )="" repaintpath(ret="" return="" ret="" we="" are="" done="" }="" int="" [="" new_nodes="connected_nodes(path," num_path="" if="" (new_nodes="" !="null)" {="" for="" (int="" j="0;"><new_nodes.length ;="" j="" new_path="copy_path(path," new_path[num_path="new_nodes[j];" num_path="" (test="" !="null)" if="" (test[test.length="" -="" goal_node="" ici3="" )="" test="findPathHelper(new_path," return="" null="" }="" public="" void="" repaintpath(int="" path="" {="" [="" path2="new" int[2="" *="" num="" +="" 1="" int="" count="0;" for="" (int="" i="0;">&lt;(num - 1); i++) {
+	    path2[count++] = path[i];
+	    path2[count++] = path[i+1];
+	}
+	super.repaintPath(path2, count);
+    }
+
+    protected int [] connected_nodes(int [] path, int num_path) {
+	// find all nodes connected to the last node on 'path'
+	// that are not already on 'path'
+	int [] ret = new int[SearchApplet.MAX];
+	int num = 0;
+	int last_node = path[num_path - 1];
+	for (int n=0; n<numnodes ;="" n="" 
+		{="" see="" if="" node="" 'n="" is="" already="" on="" 'path="" boolean="" keep="true;" 
+for="" (int="" i="0;"><num_path ;="" (n="=" path[i="" keep="false;" break="" }="" boolean="" connected="false;" (keep="" {="" now="" see="" if="" there="" is="" a="" link="" between="" node="" 'last_node="" and="" 'n="" for="" (int="" i=""><numlinks ;="" (link_2[i="=" last_node="" (link_1[i="=" n="" connected="true;" break="" (connected="" {="" ret[num="n;" }="" if="" (num="=" 0="" return="" null="" int="" [="" ret2="new" int[num="" for="" (int="" i=""><num ;="" ret2[i="ret[i];" return="" ret2="" }="" num_path="0;" private="" copy_path(int="" path="new" num_to_copy="" {="" int="" [="" ret="new" int[searchapplet.max="" 
+for="" (int="" i=""></num></numlinks></num_path></numnodes></new_nodes.length></num_path>

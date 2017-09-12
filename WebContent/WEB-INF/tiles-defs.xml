@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+<!--	GENERAL LAYOUTS OF PAGES AT BUYNSELL	-->
+
+<definition name=".layout" path="/pages/Layout.jsp">
+	 <put name="title" value="DefaultTitle"/>
+     <put name="header" value="/pages/commonHeader.jsp"/>
+     <put name="linker" value="/pages/commonLinker.jsp"/>
+	 <put name="footer" value="/pages/commonFooter.jsp"/>
+     <put name="content" value=""/>
+</definition>
+
+<definition name=".accountlayout" extends=".layout">
+	 <put name="title" value="Your Account"/>
+     <put name="linker" value="/pages/accountLinker.jsp"/>
+</definition>
+
+<definition name=".adminlayout"  extends=".layout">
+	 <put name="title" value="Admin Area"/>
+	 <put name="linker" value="/pages/blank.jsp"/>
+</definition>
+
+
+
+
+<!-- TILES FOR ADMIN ACCESS -->
+
+<definition name=".adminloginsuccess" extends=".adminlayout">
+	<put name="content" value="/pages/AdminHome.jsp"/>
+</definition>
+
+<definition name=".manageusers" extends=".adminlayout">
+	<put name="content" value="/pages/AdminManageUsers.jsp"/>
+</definition>
+
+<definition name=".selecteduser" extends=".adminlayout">
+	<put name="content" value="/pages/AdminManageUsers.jsp"/>
+</definition>
+
+<definition name=".askadminpass" extends=".adminlayout">
+     <put name="title" value="Restricted area at buyNsell !"/>
+     <put name="content" value="/pages/AskAdminPass.jsp"/>
+</definition >
+
+<definition name=".manageauctions" extends=".adminlayout">
+	<put name="content" value="/pages/AdminManageAuctions.jsp"/>
+</definition>
+
+<definition name=".selectedauction" extends=".adminlayout">
+	<put name="content" value="/pages/AdminManageAuctions.jsp"/>
+</definition>
+
+<definition name=".selectedusersauctions" extends=".adminlayout">
+	<put name="content" value="/pages/AdminManageAuctions.jsp"/>
+</definition>
+
+<definition name=".adminviewsauctiontimers" extends=".adminlayout">
+	<put name="content" value="/pages/AdminViewAuctionTimers.jsp"/>
+</definition>
+
+<definition name=".adminchangespassword" extends=".adminlayout">
+	<put name="content" value="/pages/AdminChangesPassword.jsp"/>
+</definition>
+
+<definition name=".adminsettings" extends=".adminlayout">
+	<put name="content" value="/pages/AdminSettings.jsp"/>
+</definition>
+
+<definition name=".adminrequestsabout" extends=".adminlayout">
+	<put name="content" value="/pages/About.jsp"/>
+</definition>
+
+
+
+
+<!-- TILES FOR COMMON ACCESS -->
+
+<definition name=".about" extends=".layout">
+	<put name="content" value="/pages/About.jsp"/>
+</definition>
+
+<definition name=".welcome" extends=".layout">
+     <put name="title" value="Welcome to buyNsell !"/>
+     <put name="content" value="/pages/home.jsp"/>
+</definition >
+
+<definition name=".register" extends=".layout">
+     <put name="title" value="User Account Registration !"/>
+     <put name="content" value="/pages/RegistrationForm.jsp"/>
+</definition >
+
+<definition name=".itemsearchsuccess" extends=".layout">
+     <put name="content" value="/pages/ItemFound.jsp"/>
+</definition >
+
+<definition name=".commonresponse" extends=".layout">
+	<put name="content" value="/pages/Response.jsp"/>
+</definition>
+
+<definition name=".categorywiselisting" extends=".layout">
+	<put name="content" value="/pages/CategoryWiseListing.jsp"/>
+</definition>
+
+
+
+
+
+<!-- TILES FOR ACCOUNT ACCESS -->
+
+<definition name=".userloginsuccess" extends=".accountlayout">
+	<put name="content" value="/pages/AccountHome.jsp"/>
+</definition >
+
+<definition name=".creditcarddetails" extends=".accountlayout">
+	<put name="content" value="/pages/CreditCardForm.jsp"/>
+</definition>
+
+<definition name=".postingacatalog" extends=".accountlayout">
+	<put name="content" value="/pages/CatalogForm.jsp"/>
+</definition>
+
+<definition name=".postcatalogsuccess" extends=".accountlayout">
+	<put name="content" value="/pages/CatalogPostSuccess.jsp"/>
+</definition>
+
+<definition name=".viewauctions" extends=".accountlayout">
+	<put name="content" value="/pages/ViewAuctions.jsp"/>
+</definition>
+
+<definition name=".viewavailableauctions" extends=".accountlayout">
+	<put name="content" value="/pages/ViewAvailableAuctions.jsp"/>
+</definition>
+
+<definition name=".bidforauction" extends=".accountlayout">
+	<put name="content" value="/pages/BidForAuctionForm.jsp"/>
+</definition>
+
+<definition name=".statusforauction" extends=".accountlayout">
+	<put name="content" value="/pages/AuctionStatus.jsp"/>
+</definition>
+
+<definition name=".changepassword" extends=".accountlayout">
+	<put name="content" value="/pages/ChangePassword.jsp"/>
+</definition>
+
+<definition name=".response" extends=".accountlayout">
+	<put name="content" value="/pages/Response.jsp"/>
+</definition>
+
+</tiles-definitions>

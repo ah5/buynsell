@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Code Fragment</title>
+</head>
+
+<body text=#000000>
+<center>
+</center><br><br><dl><dd><pre>
+
+<font color=#ff0080>/**
+ * An interface for a binary tree, where each node can have zero, one,
+ * or two children.
+ */</font>
+<font color=#8000a0>public</font> <font color=#8000a0><font color=#ff8000>interface</font> </font>BinaryTree <font color=#8000a0><font color=#ff8000>extends</font> </font>Tree {
+  <font color = #ff0080>/** Returns the left child of a node. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font>Position <font color=#0000ff>left</font>(Position v) 
+    <font color=#8000a0><font color=#ff8000>throws</font> </font>InvalidPositionException, BoundaryViolationException;
+  <font color = #ff0080>/** Returns the right child of a node. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font>Position <font color=#0000ff>right</font>(Position v) 
+    <font color=#8000a0><font color=#ff8000>throws</font> </font>InvalidPositionException, BoundaryViolationException;
+  <font color = #ff0080>/** Returns whether a node has a left child. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font><font color=#8000a0>boolean</font> <font color=#0000ff>hasLeft</font>(Position v) <font color=#8000a0><font color=#ff8000>throws</font> </font>InvalidPositionException;
+  <font color = #ff0080>/** Returns whether a node has a right child. */</font>
+  <font color=#8000a0><font color=#8000a0>public</font> </font><font color=#8000a0>boolean</font> <font color=#0000ff>hasRight</font>(Position v) <font color=#8000a0><font color=#ff8000>throws</font> </font>InvalidPositionException;
+}
+</dl>
+</body>
+</html>

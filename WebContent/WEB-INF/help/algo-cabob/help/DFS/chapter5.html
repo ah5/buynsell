@@ -1,0 +1,315 @@
+<html><head><title>Implementing Depth First Search</title>
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document"></head>
+
+<body>
+
+<div align="center">
+  <!-- Insert for header -->
+  <!--webbot bot="Include" u-include="../../nav/top.html" tag="BODY" startspan -->
+
+<!-- New to Java -->
+<p align="left"><font color="green" size="2"><a style="color: rgb(0, 128, 128);">New to
+Java? We'll help you get started with our </a></font><a href="http://www.javacoffeebreak.com/tutorials/gettingstarted/index.html" style="color: rgb(0, 128, 128);"><font color="green" size="2">revised
+beginner's tutorial</font></a><font color="green" size="2"><a style="color: rgb(0, 128, 128);" href="http://www.javacoffeebreak.com/books/extracts/javanotesv3/index.html">,</a><a style="color: rgb(0, 128, 128);">
+or our</a></font> <a style="color: rgb(0, 128, 128);" href="http://www.javacoffeebreak.com/books/extracts/javanotesv3/index.html"><font color="green" size="2">free
+online textbook.</font></a></p>
+<div align="center">
+  <center>
+  <table border="0" cellpadding="0" cellspacing="0" width="600">
+	 <!-- Advertising to support JavaCoffeeBreak -->
+    <tbody><tr>
+      <!-- Left table contains 480x600 advertising banner for our sponsors -->
+      <td align="left" valign="top">
+
+
+<p align="center">
+
+
+<!-- BEGIN RICH-MEDIA BURST! CODE -->
+<script language="JavaScript">
+rnum=Math.round(Math.random() * 100000);
+
+document.write('<scr'+'ipt src="http://www.burstnet.com/cgi-bin/ads/ad2350a.cgi/v=2.0S/sz=468x60A/'+rnum+'/RETURN-CODE/JS/"></scr'+'ipt>');
+
+</script><script src="chapter5_files/a.htm"></script><a href="http://www.burstnet.com/ads/ad2350a-map.cgi/SZ=468X60A/V=2.0S/BRC=5059/BCPG5251.33499.34970/" target="_top"><img src="chapter5_files/ad_sv_unclesame_041603.gif" border="0" height="60" width="468"></a><img src="chapter5_files/blank.gif" align="right" height="0" width="0">
+<noscript><a href="http://www.burstnet.com/ads/ad2350a-map.cgi/ns/v=2.0S/sz=468x60A/" target="_top">
+<img src="http://www.burstnet.com/cgi-bin/ads/ad2350a.cgi/ns/v=2.0S/sz=468x60A/" border="0" alt="Click Here"></a>
+</noscript>
+<!-- END BURST CODE -->
+
+  
+
+
+</p>
+
+
+
+      </td>
+      <!-- Right table contains 120x60  button for our sponsors -->
+      <td align="right" valign="top">
+         
+
+
+        <a href="http://www.amazon.com/exec/obidos/redirect?tag=davidreillysprog&amp;path=subst/books/computers/java/java.html"><img src="chapter5_files/javashop.gif" border="0" height="60" width="120"></a><br>
+        <font face="Times New Roman" size="1"><a href="http://www.amazon.com/exec/obidos/redirect?tag=davidreillysprog&amp;path=subst/books/computers/java/java.html">Get the latest Java books</a></font>
+
+
+      </td>
+    </tr>
+    <!-- JavaCoffeeBreak branding and navigation -->
+    <tr>
+      <td colspan="2">
+        <div align="center">
+          <font size="1">h t t p : / /w w w . j a v a c o f f e e b r e a k . c
+          o m /</font>
+          <table bgcolor="#000000" border="1" cellpadding="0" cellspacing="0" width="400">
+            <tbody><tr>
+              <td>
+                <p align="center"><img src="chapter5_files/header.gif" alt="Java Coffee Break" height="50" width="400"></p></td>
+            </tr>
+          </tbody></table>
+        </div>
+      </td>
+    </tr>
+  </tbody></table>
+  </center>
+</div>
+
+<!--webbot bot="Include" endspan i-checksum="38232" -->
+  <table 10="" border="0" cellpadding="5" cellspacing="5" width="600">
+    <tbody><tr>
+      <td valign="top" width="125"><!--webbot bot="Include"
+        u-include="../../nav/left.html" tag="BODY" startspan -->
+
+<p><font color="#000080">Menu</font></p>
+<hr color="#000080">
+<p><font size="2"><a href="http://javacoffeebreak.mail.everyone.net/"><br>
+</a></font><i>Learning Java</i></p>
+<p><font size="2"><a href="http://www.javacoffeebreak.com/articles/index.html">Articles<br>
+</a><a href="http://www.javacoffeebreak.com/articles/authorprofiles/index.html">Author Profiles</a><br>
+<a href="http://www.javacoffeebreak.com/tutorials/index.html">Lessons<br>
+</a><a href="http://www.javacoffeebreak.com/faq/index.html">FAQ's<br>
+</a><a href="http://www.javacoffeebreak.com/books/index.html">Books</a><br>
+<a href="http://www.javacoffeebreak.com/newsletter/index.html">Newsletter<br>
+</a><a href="http://www.javacoffeebreak.com/tutorials/index.html">Tutorials<br>
+</a><a href="http://www.javacoffeebreak.com/javatalk/index.html">Talk Java!</a></font></p>
+<p><i>Using Java</i></p>
+<p><font size="2"><a href="http://www.javacoffeebreak.com/applets/index.html">Applets</a><br>
+<a href="http://www.javacoffeebreak.com/beans/index.html">JavaBeans</a><br>
+<a href="http://www.javacoffeebreak.com/servlets/index.html">Servlets</a><br>
+<a href="http://www.javacoffeebreak.com/links.html">Resources<br>
+</a><a href="http://www.javacoffeebreak.com/javatalk/index.html">Discuss Java</a></font></p>
+<hr color="#000080">
+
+<p><a href="http://www.milehighcomics.com/cgi-bin/welcome.cgi?wdreil">
+<img src="chapter5_files/school.jpg" height="200" width="100"></a></p>
+
+<p><font size="2">
+Looking for Java resources? Check out the <a href="http://www.javacoffeebreak.com/directory/index.html">Java
+Coffee Break directory</a>!</font></p>
+
+
+
+<!--webbot bot="Include" endspan i-checksum="33407" --></td>
+      <td valign="top">
+        <h1>Implementing Depth First Search</h1>
+        <p>There are two active Java applets in this book that show a
+        demonstration of depth first and breadth first search . These two Java
+        applets show a simple network:</p>
+        <p><img src="chapter5_files/network.jpg" alt="Network" align="bottom" border="0" height="169" width="317"></p>
+        <p>Before we design and implement any search programs, we will
+        "walk through" a search of this simple network, trying to find
+        a path from node "0" to node "9". Specifically, we
+        will manually perform a depth first search.</p>
+        <h3>Running the depth first search applet</h3>
+        <p>Editor's note :&nbsp; The source code for the applet is accessible <a href="http://www.javacoffeebreak.com/tutorials/aisearch/DepthFirstSearch.java">here</a>,
+        and also relies on <a href="http://www.javacoffeebreak.com/tutorials/aisearch/SearchApplet.java">SearchApplet.java</a>.</p>
+        <p align="center">
+        <applet name="dummy" code="DepthFirstSearch.class" align="bottom" height="240" width="320"><param value="1">
+          <param name="pwidth" value="270">
+          <param name="pheight" value="100">
+        </applet>
+        <br>
+        Depth first search applet</p>
+        <p>In the file DepthFirstSearch.java, we define the positions of nine
+        test nodes:</p>
+        <pre>        addNode("0", 0.0f, 0.0f);
+        addNode("1", 1.0f, 1.0f);
+        addNode("2", 5.0f, 2.0f);
+        addNode("3", 2.0f, 5.0f);
+        addNode("4", 7.0f, 5.0f);
+        addNode("5", 8.0f, 8.0f);
+        addNode("6", 10.0f, 5.0f);
+        addNode("7", 8.0f, 2.0f);
+        addNode("8", 12.0f, 8.0f);
+        addNode("9", 13.0f, 5.0f);
+</pre>
+        <p>In the above figure showing our sample network, we define the
+        "links" in the following order:</p>
+        <pre>        addLink(0,1);
+        addLink(1,2);
+        addLink(2,3);
+        addLink(2,4);
+        addLink(4,5);
+        addLink(4,6);
+        addLink(6,8);
+        addLink(8,9);
+        addLink(2,7);
+        addLink(7,9);                
+</pre>
+        <p>The order that the links are defined is important in a depth first
+        search. if we start at node "0" and search to node
+        "9", then we find the first link leaving node "0"
+        (in this case link "0" to "1"). Then we take the
+        first link leaving node "1" (in this case link "1' to
+        "2"), etc. When we "run out of" links to explore
+        from a given node, then we "back up" to the preceeding node,
+        and explore all other links that leave that node.</p>
+        <p>I am sure that you have already tried running the depth first search
+        applet, right? Then you will have noticed that it found a rather long
+        path from node "0" to "node "9". The depth
+        first search applet stops when it has found a path. The breadth first
+        search applet in <a href="http://www.javacoffeebreak.com/tutorials/aisearch/chapter6.html">Chapter 6</a> finds better
+        paths, in general. I assume that you know how to program in Java, so I
+        will just briefly explain what each method in classes <b>SearchApplet</b>
+        and <b>DepthFirstSearch</b>. We will discuss the implementation of <b>BreadthFirstSearch</b>
+        in <a href="http://www.javacoffeebreak.com/tutorials/aisearch/chapter6.html">Chapter 6</a>.</p>
+        <h3>Methods in <b>SearchApplet</b></h3>
+        <ul>
+          <li><b>init</b> - this method is called by the applet container (e.g.,
+            a Java enabled web browser, or the "appletviewer" utility)
+            when an applet is started. Here, we just get the applet width and
+            height, and set up two Java AWT "Choice" controls so that
+            the user of the applet can change the start and goal nodes. We use
+            internal anonymous classes to handle events for the
+            "Choice" controls, so this applet requires Java version
+            1.1 or higher.</li>
+          <li><b>repaintPath(int [] path, int num_in_path)</b> - this is a
+            graphics utility method for drawing a specified path on the applet's
+            canvas.</li>
+          <li><b>repaintPath(int [] path)</b> - this is a graphics utility
+            method for drawing a specified path on the applet's canvas.</li>
+          <li><b>paintNode(Graphics g, String name, int x, int y)</b> - this is
+            a simple utility method for drawing a node at a specified location.</li>
+          <li><b>paint(Graphics g)</b> - this method is called by the applet's
+            container whenever the applet needs to update its display.</li>
+          <li><b>addNode(String name, float x, float y)</b> - for adding a new
+            node to the network.</li>
+          <li><b>String getNodeName(int index)</b> - returns a specified node's
+            name.</li>
+          <li><b>float getNodeX(ind index)</b> - returns a speficified node's X
+            coordinate.</li>
+          <li><b>float getNodeY(ind index)</b> - returns a speficified node's Y
+            coordinate.</li>
+          <li><b>float getPathLength(int index)</b> - returns a specified link's
+            length. This is not currently used, but would be required for adding
+            heuristics to the search.</li>
+          <li><b>addLink(int index1, int index2)</b> - for adding a link given
+            two node indices.</li>
+          <li><b>addLink(String name1, String name2)</b> - for adding a link
+            given two node names.</li>
+          <li><b>abstract int [] findPath(int node_1, int node_2)</b> - this is
+            an abstract method for finding a path between two specified nodes.
+            This method will be overriden in the classes <b>DepthFirstSearch</b>
+            and <b>BreadthFirstSearch</b></li>
+          <li><b>int getNodeIndex(String node_name)</b> - returns the node
+            index, given its name.</li>
+        </ul>
+        <h3>Methods defined in class <b>DepthFirstSearch</b></h3>
+        <p>The class <b>DepthFirstSearch</b> is derived from the class <b>SearchApplet</b>
+        and defines the following methods:
+        </p><ul>
+          <li><b>init</b> - this method defines a test network, then calls the
+            super class <b>SearchApplet</b> method <b>init</b>.</li>
+          <li>&nbsp;</li>
+          <li><b>int [] findPath(int node_1, int node_2)</b> - this is a method
+            for finding a path between two specified nodes using a depth first
+            search as described in the text. The return value for this method is
+            an array of node indices.</li>
+          <li><b>int [] findPathHelper(int [] path, int num_path, int goal_node)</b>
+            - this is the actual search method that calls itself recursively.</li>
+          <li><b>repaintPath(int [] path, int num_path)</b> - converts an
+            ordered list of node indices to a doubled up list, then calls the
+            super class method <b>repaintPath</b>.</li>
+          <li><b>int [] connected_nodes(int [] path, int num_path)</b> - this is
+            a helper method called by <b>findPathHelper</b> that finds all nodes
+            connected to the last node on the current path that are not already
+            on the current path.</li>
+          <b>
+          </b><p><b>int [] copy_path(int [] path, int num_to_copy)</b> - this is a
+          helper method called by <b>findPathHelper</b> that copies a path
+          array.</p>
+        </ul>
+        <p>If you have not already done so, return to the table of contents
+        page, and experiment with the depth first search applet.</p>
+        <p align="right"><a href="http://www.javacoffeebreak.com/tutorials/aisearch/chapter6.html">Next : Implementing Breadth
+        First Search</a></p></td>
+    </tr>
+    <tr>
+      <td colspan="2"><!--webbot bot="Include"
+        u-include="../../_private/footer.html" tag="BODY" startspan -->
+
+<p align="center"><a href="http://www.javacoffeebreak.com/index.html">Back to main</a></p>
+
+
+
+<p align="center">
+
+</p><center>
+<script language="javascript">
+    <!--
+    var count= Math.floor(Math.random() * 100);
+    document.write ('<br><iframe src="http://leader.linkexchange.com/' + count + '/X882822/showiframe?" width=468 height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no>');
+    document.write ('<a href="http://leader.linkexchange.com/' + count + '/X882822/clickle" target="_top">');
+    document.write ('<img width=468 height=60 border=0 ismap alt="Support our sponsors" src="http://leader.linkexchange.com/' + count + '/X882822/showle?"></a></iframe>');    
+    //-->
+    </script><br><iframe src="chapter5_files/showiframe.htm" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" height="60" scrolling="no" width="468">&lt;a&gt;&lt;img&gt;&lt;/a&gt;</iframe>
+    <noscript>
+<iframe src="http://leader.linkexchange.com/1/X882822/showiframe?"
+width=468 height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0
+frameborder=0 scrolling=no>
+<a href="http://leader.linkexchange.com/1/X882822/clickle"
+target="_top"><img width=468 height=60 border=0 ismap alt=""
+src="http://leader.linkexchange.com/1/X882822/showle?"></a></iframe><br><a
+href="http://leader.linkexchange.com/1/X882822/clicklogo"
+target="_top"><img
+src="http://leader.linkexchange.com/1/X882822/showlogo?" width=468
+height=16 border=0 ismap alt=""></a> </noscript>
+</center>
+<p></p>
+
+
+<hr>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td width="451">
+      <div align="left">
+        <address>
+          <font face="Arial" size="2">Copyright 1998, 1999, 2000 David Reilly</font>
+        </address>
+      </div>
+    </td>
+    <td width="310">
+      <p align="right"><font face="Arial" size="2"><a href="http://www.javacoffeebreak.com/legal/privacy.html">Privacy</a>
+      | <a href="http://www.javacoffeebreak.com/legal/index.html">Legal</a> | <a href="http://www.javacoffeebreak.com/legal/linking.html">Linking</a>
+      | <a href="http://www.javacoffeebreak.com/advertising/index.html" style="color: rgb(255, 153, 102);">Advertise!</a></font></p></td>
+  </tr>
+  <tr>
+    <td width="451">
+      <div align="left">
+        <address>
+          <font face="Arial" size="2">Last updated: Saturday, April 01, 2000</font>
+        </address>
+      </div>
+    </td>
+    <td width="310"></td>
+  </tr>
+</tbody></table>
+<!--webbot bot="Include" endspan i-checksum="24072" --></td>
+    </tr>
+  </tbody></table>
+</div>
+
+</body></html>

@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head><!--Converted with LaTeX2HTML 2K.1beta (1.47)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><title>Binary Trees: ADT</title>
+
+<meta name="description" content="Binary Trees: ADT">
+<meta name="keywords" content="3240">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Generator" content="LaTeX2HTML v2K.1beta">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<link rel="STYLESHEET" href="node18_files/3240.css">
+
+<link rel="next" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node19.html">
+<link rel="previous" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node17.html">
+<link rel="up" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node16.html">
+<link rel="next" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node19.html"></head>
+
+
+
+<body>
+<!--Navigation Panel-->
+<a name="tex2html309" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node19.html">
+<img alt="next" src="file:/usr/share/latex2html/icons/next.png" align="bottom" border="0" height="24" width="37"></a> 
+<a name="tex2html305" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node16.html">
+<img alt="up" src="file:/usr/share/latex2html/icons/up.png" align="bottom" border="0" height="24" width="26"></a> 
+<a name="tex2html299" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node17.html">
+<img alt="previous" src="file:/usr/share/latex2html/icons/prev.png" align="bottom" border="0" height="24" width="63"></a> 
+<a name="tex2html307" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node1.html">
+<img alt="contents" src="file:/usr/share/latex2html/icons/contents.png" align="bottom" border="0" height="24" width="65"></a>  
+<br>
+<b> Next:</b> <a name="tex2html310" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node19.html">Binary Search Trees: ADT</a>
+<b> Up:</b> <a name="tex2html306" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node16.html">Trees: ADT</a>
+<b> Previous:</b> <a name="tex2html300" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node17.html">Tree Traversals: tree</a>
+ &nbsp; <b>  <a name="tex2html308" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node1.html">Contents</a></b> 
+<br>
+<br>
+<!--End of Navigation Panel-->
+
+<h1><a name="SECTION07020000000000000000">
+<u><font size="+2"><b>Binary Trees: ADT [55]</b></font></u></a>
+</h1>
+
+<p>
+<br>
+<br>
+
+</p><p>
+</p><div align="center">
+ <br>
+<img src="node18_files/img9.png" alt="\begin{picture}(268,188)(26,646)
+\thicklines\put(160,820){\circle{28}}
+\put( 40,...
+...05,810){\makebox(0,0)[lb]{\raisebox{0pt}[0pt][0pt]{\twlrm right}}}
+\end{picture}" align="bottom" border="0" height="270" width="385">
+<br>
+
+</div>
+
+<p>
+<br>
+<br>
+
+</p><p>
+Each node has 0, 1, or 2 children.
+
+</p><p>
+Applications: many including expression trees.
+
+</p><p>
+<br>
+<br><u><font size="+2"><b>Binary Trees: <tt>binary</tt> [56]</b></font></u>
+
+</p><p>
+</p><pre>% gcc -o binary binary.c                               &gt; tcc binary.c
+% binary
+&gt; h
+h(elp; q(uit; r(oot x; i(nsert [l|r]+ x (ex: i llr x); P(reorder; p(ostorder; 
+I(norder; e(xpression s; H(eight
+</pre>
+
+<p>
+Data File with Test Case: <tt>binary.dat</tt>
+
+</p><p>
+</p><pre>r h
+i l e, i r o, i ll l, i lr l, i lrl o, i lrr w, i rl r, i rlr l, i rr d
+P I p H
+</pre>
+
+<p>
+<br>
+<br>
+
+</p><p>
+Data File with Test Case for Expression Trees: <tt>binary1.dat</tt>
+
+</p><p>
+</p><pre>r +
+i l +, i r *, i ll a, i lr *, i lrl b, i lrr c, i rl +, i rlr f, i rr g
+i rll *, i rlll d, i rllr e
+I p H C
+e abc*+de*f+g*+
+p
+</pre>
+
+<p>
+<br>
+<br><u><font size="+2"><b>Binary Trees: <tt>binary.dat</tt> [57]</b></font></u>
+
+</p><p>
+</p><pre>Preorder: print, visit left and right Inorder: visit left, print, visit right   
+depth pointer   left  right  element    depth pointer   left  right  element   
+    0  153016 153040 153064  h              2  153088      0      0      l   
+    1  153040 153088 153112    e            1  153040 153088 153112    e   
+    2  153088      0      0      l          3  153136      0      0        o   
+    2  153112 153136 153160      l          2  153112 153136 153160      l   
+    3  153136      0      0        o        3  153160      0      0        w   
+    3  153160      0      0        w        0  153016 153040 153064  h   
+    1  153064 153184 153232    o            2  153184      0 153208      r   
+    2  153184      0 153208      r          3  153208      0      0        l   
+    3  153208      0      0        l        1  153064 153184 153232    o   
+    2  153232      0      0      d          2  153232      0      0      d   
+
+postorder: visit left and right, print
+depth pointer   left  right  element
+    2  153072      0      0      l
+    3  153120      0      0        o
+    3  153144      0      0        w
+    2  153096 153120 153144      l
+    1  153024 153072 153096    e
+    3  153192      0      0        l
+    2  153168      0 153192      r
+    2  153216      0      0      d
+    1  153048 153168 153216    o
+    0  153000 153024 153048  h
+</pre>
+
+<p>
+<br>
+<br><u><font size="+2"><b>Binary Trees: Height [58]</b></font></u>
+
+</p><p>
+</p><pre>int Height(BINARY_TREE T) {
+int h, max;
+  if (T == NULL)
+    return -1;
+  else {
+    h = Height(T-&gt;left);
+    max = Height(T-&gt;right);
+    if (h &gt; max) max = h;
+    return(max+1);
+  }
+}
+</pre>
+
+<p>
+Definition: A leaf has a height of zero.
+
+</p><p>
+Height(l)=0; Height(o)=0; Height(w)=0; Height(l)=1;
+
+</p><p>
+Height(e)=2; Height(l)=0; Height(r)=1; Height(d)=0;
+
+</p><p>
+Height(o)=2; Height(h)=3;
+
+</p><p>
+<br>
+<br><u><font size="+2"><b>Binary Trees: Expression Trees [59]</b></font></u>
+
+</p><p>
+<br>
+<br>
+
+</p><p>
+</p><div align="center">
+ <br>
+<img src="node18_files/img10.png" alt="\begin{picture}(268,248)(26,586)
+\thicklines\put(160,820){\circle{28}}
+\put( 40,...
+...ut(210,720){\makebox(0,0)[lb]{\raisebox{0pt}[0pt][0pt]{\twlrm +}}}
+\end{picture}" align="bottom" border="0" height="356" width="385">
+<br>
+
+</div>
+
+<p>
+<br>
+<br>
+
+</p><p>
+Expression: (a+b*c)+((d*e+f)*g)
+
+</p><p>
+Inorder Traversal: <tt>a + b * c + d * e + f * g</tt>
+
+</p><p>
+Postorder Traversal: <tt>a b c * + d e * f + g * +</tt>
+
+</p><p>
+Preorder Traversal: 
+
+</p><p>
+</p><pre>% binary binary1.dat
+</pre>
+
+<p>
+<br>
+<br><u><font size="+2"><b>Binary Trees: <tt>binary1.dat</tt> [60]</b></font></u>
+
+</p><p>
+</p><pre>Inorder: visit left, print, visit right  postorder: visit left and right, print   
+depth pointer   left  right  element     depth pointer   left  right  element   
+    2  153088      0      0      a           2  153088      0      0      a   
+    1  153040 153088 153112    +             3  153136      0      0        b   
+    3  153136      0      0        b         3  153160      0      0        c   
+    2  153112 153136 153160      *           2  153112 153136 153160      *   
+    3  153160      0      0        c         1  153040 153088 153112    +   
+    0  153016 153040 153064  +               4  153280      0      0          d   
+    4  153280      0      0          d       4  153304      0      0          e   
+    3  153256 153280 153304        *         3  153256 153280 153304        *   
+    4  153304      0      0          e       3  153208      0      0        f   
+    2  153184 153256 153208      +           2  153184 153256 153208      +   
+    3  153208      0      0        f         2  153232      0      0      g   
+    1  153064 153184 153232    *             1  153064 153184 153232    *   
+    2  153232      0      0      g           0  153016 153040 153064  +
+</pre>
+
+<p>
+<br>
+<br><u><font size="+2"><b>Binary Trees: <tt>binary.c</tt> [61]</b></font></u>
+
+</p><p>
+</p><pre>typedef struct tree_node *tree_ptr;
+struct tree_node {
+  element_type element;
+  tree_ptr left;
+  tree_ptr right;
+};
+typedef tree_ptr BINARY_TREE;
+void preorder(BINARY_TREE T, int depth) { 
+if (T != NULL) {
+    show_node(T,depth);
+    preorder(T-&gt;left,depth+1);
+    preorder(T-&gt;right,depth+1);
+} }
+void postorder(BINARY_TREE T, int depth) {  
+  if (T != NULL) {
+    postorder(T-&gt;left,depth+1);
+    postorder(T-&gt;right,depth+1);
+    show_node(T,depth);
+} }
+void inorder(BINARY_TREE T, int depth) {  
+  if (T != NULL) {
+    inorder(T-&gt;left,depth+1);
+    show_node(T,depth);
+    inorder(T-&gt;right,depth+1);
+}  }
+</pre>
+
+<p>
+<br>
+<br><u><font size="+2"><b>Construct Expression Tree [62]</b></font></u>
+
+</p><p>
+Solution program: <tt>binary1 binary1.dat</tt>
+
+</p><p>
+</p><pre>&gt; e ab+cde+**
+
+operand : create node, push 
+
+operator: create node, node-&gt;right=pop, node-&gt;left = pop, push
+</pre>
+
+<p>
+<br>
+<br>
+
+</p><p>
+</p><div align="center">
+ <br>
+<img src="node18_files/img11.png" alt="\begin{picture}(653,374)(7,446)
+\thicklines\put( 20,800){\framebox (200,20){}}
+\...
+...ut(615,455){\makebox(0,0)[lb]{\raisebox{0pt}[0pt][0pt]{\twlrm e}}}
+\end{picture}" align="bottom" border="0" height="539" width="940">
+<br>
+
+</div>
+
+<p>
+</p><hr>
+<!--Navigation Panel-->
+<a name="tex2html309" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node19.html">
+<img alt="next" src="file:/usr/share/latex2html/icons/next.png" align="bottom" border="0" height="24" width="37"></a> 
+<a name="tex2html305" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node16.html">
+<img alt="up" src="file:/usr/share/latex2html/icons/up.png" align="bottom" border="0" height="24" width="26"></a> 
+<a name="tex2html299" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node17.html">
+<img alt="previous" src="file:/usr/share/latex2html/icons/prev.png" align="bottom" border="0" height="24" width="63"></a> 
+<a name="tex2html307" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node1.html">
+<img alt="contents" src="file:/usr/share/latex2html/icons/contents.png" align="bottom" border="0" height="24" width="65"></a>  
+<br>
+<b> Next:</b> <a name="tex2html310" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node19.html">Binary Search Trees: ADT</a>
+<b> Up:</b> <a name="tex2html306" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node16.html">Trees: ADT</a>
+<b> Previous:</b> <a name="tex2html300" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node17.html">Tree Traversals: tree</a>
+ &nbsp; <b>  <a name="tex2html308" href="http://www.sci.csuhayward.edu/%7Ebillard/cs3240/node1.html">Contents</a></b> 
+<!--End of Navigation Panel-->
+<address>
+Ted Billard
+2001-10-25
+</address>
+</body></html>
