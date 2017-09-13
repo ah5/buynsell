@@ -1,8 +1,9 @@
 apply plugin: 'base'
 apply plugin: 'java'
+apply plugin: 'war'
 
 group = 'com.stemex'
-version = '1.0.0'
+version = '2.0.0'
 
 repositories {
     maven {
@@ -42,16 +43,15 @@ compileJava {
     targetCompatibility = 1.6
 }
 
-/*
-apply plugin: 'war'
 war {
-	manifest {
-		attributes 'Implementation-Title': 'Hello World'
+    baseName = project.name
+    from 'src/rootContent' // adds a file-set to the root of the archive
+    webInf { from 'src/additionalWebInf' } // adds a file-set to the WEB-INF dir.
+    classpath fileTree('additionalLibs') // adds a file-set to the WEB-INF/lib dir.
+    classpath configurations.moreLibs // adds a configuration to the WEB-INF/lib dir.
+    webXml = file('src/someWeb.xml') // copies a file to WEB-INF/web.xml
+    manifest {
+		attributes 'Implementation-Title': 'Buy n Sell'
 		attributes 'Implementation-Version': version
-		attributes 'Main-Class': 'com.sample.HelloWorld'
 	}
-	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-	baseName = project.name
-	destinationDir = file(artifactDir)
 }
-*/
