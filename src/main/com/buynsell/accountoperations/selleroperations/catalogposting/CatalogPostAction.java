@@ -20,7 +20,7 @@ public class CatalogPostAction extends Action {
 		CatalogPostForm catalog = (CatalogPostForm) form;
 
 		if (catalog.validator()) {
-			catalog.errorExists = false;
+			CatalogPostForm.errorExists = false;
 			ResponseMessage m = new ResponseMessage();
 			m.setType("Failure");
 			m.setHeading("Catalog Post Failure");

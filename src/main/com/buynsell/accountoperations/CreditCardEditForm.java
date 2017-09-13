@@ -3,6 +3,11 @@ package com.buynsell.accountoperations;
 import org.apache.struts.action.ActionForm;
 
 public class CreditCardEditForm extends ActionForm {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6400446155738709825L;
+	
 	String userid;
 	String ccnumber;
 	String cctype;

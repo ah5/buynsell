@@ -3,6 +3,10 @@ package com.buynsell.accountoperations.selleroperations;
 import org.apache.struts.action.ActionForm;
 
 public class SellerSelectAuctionForm extends ActionForm {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7844221848657322652L;
 	String auctionSelected = null;
 
 	public String getAuctionSelected() {

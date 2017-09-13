@@ -3,6 +3,10 @@ package com.buynsell.accountoperations;
 import org.apache.struts.action.ActionForm;
 
 public class ChangePasswordForm extends ActionForm {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5917082640140378035L;
 	String old = null;
 	String new1 = null;
 	String new2 = null;

@@ -38,14 +38,14 @@ public class UserRegistrationAction extends Action {
 		String hintans = register.getHintans();
 
 		if (register.validator()) {
-			register.errorExists = false;
+			UserRegistrationForm.errorExists = false;
 			m.setType("Failure");
 			m.setHeading("Registration Failure");
 			m.setContent(
 					"Either of the following errors might have occured :<br><li>First Name is Required !<br><li>A proper Email id Needed for sending Transcation informations !<br><li>You might have enterd an invalid email id !<br><li>Date of Birth is required !<br><li>Address is a must, it has to be Entered !<br><li>Shipping Address is also must ! It can be the same as your Address !<br><li>Please select your Country !<br><li>City is Compulsory !<br><li>Pin-Code or Zip-Code should be entered !<br><li>Phone Number is Mandatory !<br><li>Please do enter the Account User Id of your choice ! <br><li>User Id might already Exist !<br><li>You have to enter the same Password in both the password and the password confirmation field !");
 			m.setFooting("Sorry ! Do Try Once Again !");
 		} else {
-			register.errorExists = false;
+			UserRegistrationForm.errorExists = false;
 			Users user = new Users();
 			user = JdbcData.loadUser(userid);
 			if (user == null) {

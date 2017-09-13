@@ -29,8 +29,8 @@ public class StartAuctionsJob implements Job {
 		Users users = JdbcData.loadUser(catalog.getUserid());
 		String email = users.getEmailid();
 
-		ArrayList allProducts = JdbcData.loadProduct(catalogid);
-		ArrayList otherUsers = JdbcData.loadOtherUsers(catalog.getUserid());
+		ArrayList<Product> allProducts = JdbcData.loadProduct(catalogid);
+		ArrayList<Users> otherUsers = JdbcData.loadOtherUsers(catalog.getUserid());
 
 		System.out.println("Auction id =" + auctionid);
 

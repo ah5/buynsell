@@ -6,8 +6,8 @@ node {
 		checkout scm
 	}
 
-	stage('Build'){
-		sh "gradle tasks"
+	stage('Compile'){
+		sh "gradle clean compileJava"
 	}
 
 }

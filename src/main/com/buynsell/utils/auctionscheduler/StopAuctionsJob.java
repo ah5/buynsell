@@ -12,12 +12,15 @@ import com.buynsell.businessobjects.Auction;
 import com.buynsell.businessobjects.Bid;
 import com.buynsell.businessobjects.BidDetails;
 import com.buynsell.businessobjects.Catalog;
+import com.buynsell.businessobjects.Product;
 import com.buynsell.businessobjects.Users;
 import com.buynsell.databaseconnection.JdbcData;
 import com.buynsell.utils.Mailer;
 import com.buynsell.utils.solvers.AuctionSolver;
 
+@SuppressWarnings("unused")
 public class StopAuctionsJob implements Job {
+	
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 		JobDetail jd = context.getJobDetail();
 		JobDataMap jdm = jd.getJobDataMap();
@@ -26,16 +29,16 @@ public class StopAuctionsJob implements Job {
 		Auction auction = JdbcData.loadAuction(jdm.getString("catalogID"));
 		Catalog catalog = JdbcData.loadCatalog(jdm.getString("catalogID"));
 		String userid = catalog.getUserid();
-		ArrayList allProducts = JdbcData.loadProduct(jdm.getString("catalogID"));
+		ArrayList<Product> allProducts = JdbcData.loadProduct(jdm.getString("catalogID"));
 
 		AuctionSolver solvingObject = new AuctionSolver();
-		ArrayList winningBids = solvingObject.solve(catalog.getCatalogid());
+		ArrayList<Bid> winningBids = solvingObject.solve(catalog.getCatalogid());
 
 		for (int i = 0; i < winningBids.size(); i++) {
 			Bid bid = (Bid) winningBids.get(i);
 			Users user = JdbcData.loadUser(bid.getUserid());
 			String email = user.getEmailid();
-			ArrayList bidDet = JdbcData.loadBidDetails(bid.getBidid());
+			ArrayList<BidDetails> bidDet = JdbcData.loadBidDetails(bid.getBidid());
 
 			Mailer mailAuctionAnnounce = new Mailer(null, null);
 			String subject = "com.buynsell Mailer Program : AUCTION TERMINATED !";

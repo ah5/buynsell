@@ -16,6 +16,7 @@ import com.buynsell.businessobjects.Product;
 import com.buynsell.businessobjects.ResponseMessage;
 import com.buynsell.databaseconnection.JdbcData;
 
+@SuppressWarnings("rawtypes")
 public class ListCategoryAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -23,8 +24,8 @@ public class ListCategoryAction extends Action {
 		String cat = selected.getItemCategory();
 		selected.reset();
 		ArrayList categoryRelatedProducts = JdbcData.loadCategoryProducts(cat);
-		ArrayList categoryRelatedCatalogs = new ArrayList();
-		ArrayList categoryRelatedAuctions = new ArrayList();
+		ArrayList<Catalog> categoryRelatedCatalogs = new ArrayList<Catalog>();
+		ArrayList<Auction> categoryRelatedAuctions = new ArrayList<Auction>();
 		if (categoryRelatedProducts.size() > 0) {
 			for (int i = 0; i < categoryRelatedProducts.size(); i++) {
 				Product p = (Product) categoryRelatedProducts.get(i);

@@ -6,6 +6,10 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
 public class UserRegistrationForm extends ActionForm {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3041367419037323633L;
 	String firstname = null;
 	String lastname = null;
 	String companyname = null;
@@ -244,6 +248,7 @@ public class UserRegistrationForm extends ActionForm {
 		return errorExists;
 	}
 
+	@SuppressWarnings("deprecation")
 	public boolean emailValidator(String email) {
 		boolean valid = true;
 		char[] chars;

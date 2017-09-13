@@ -3,6 +3,10 @@ package com.buynsell.accountoperations.buyeroperations.bidposting;
 import org.apache.struts.action.ActionForm;
 
 public class BidPostForm extends ActionForm {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1501410382520393206L;
 	String pi0 = null;
 	String pi1 = null;
 	String pi2 = null;

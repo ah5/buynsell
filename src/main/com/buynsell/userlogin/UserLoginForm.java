@@ -3,6 +3,10 @@ package com.buynsell.userlogin;
 import org.apache.struts.action.ActionForm;
 
 public class UserLoginForm extends ActionForm {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8918229893227432595L;
 	String userid = null;
 	String pass = null;
 	static boolean errorExists = false;

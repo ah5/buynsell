@@ -30,7 +30,7 @@ public class AuctionSolver {
 	public AuctionSolver() {
 	}
 
-	public ArrayList<?> solve(String catalogID) {
+	public ArrayList<Bid> solve(String catalogID) {
 		// loading auction details , catalog details , product details , bids
 		// for concerned auction
 		auction = JdbcData.loadAuction(catalogID);
@@ -102,6 +102,7 @@ public class AuctionSolver {
 
 	public static void main(String args[]) {
 		AuctionSolver as = new AuctionSolver();
-		ArrayList wins = as.solve("C18526");
+		ArrayList<Bid> wins = as.solve("C18526");
+		System.out.println(wins.size());
 	}
 }

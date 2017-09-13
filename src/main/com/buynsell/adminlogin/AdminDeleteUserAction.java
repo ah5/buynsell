@@ -14,6 +14,7 @@ public class AdminDeleteUserAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		Users u = (Users) request.getSession().getAttribute("selecteduser");
+		System.out.println(u.getUserid());
 
 		String temp = "DELETE";
 		request.getSession().setAttribute("message", temp);

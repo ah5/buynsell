@@ -3,6 +3,10 @@ package com.buynsell.itemsearch;
 import org.apache.struts.action.ActionForm;
 
 public class ItemSearchForm extends ActionForm {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3885606281335386792L;
 	String itemName = null;
 	String itemCategory = null;
 

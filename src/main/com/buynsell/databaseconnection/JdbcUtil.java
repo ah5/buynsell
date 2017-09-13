@@ -14,6 +14,7 @@ public class JdbcUtil {
 	static ResultSet rs = null;
 	static ResultSetMetaData resSetMtDt = null;
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static ArrayList exeQuery(String query) {
 		ArrayList result = new ArrayList();
 		try {
@@ -78,6 +79,7 @@ public class JdbcUtil {
 		return false;
 	}
 
+	@SuppressWarnings("deprecation")
 	public static String fromJavaToSqlDateFormat(java.util.Date date) {
 		int year = date.getYear();
 		int month = date.getMonth() + 1;
@@ -98,6 +100,7 @@ public class JdbcUtil {
 		return d;
 	}
 
+	@SuppressWarnings("deprecation")
 	public static String fromJavaDateToSQLString(java.util.Date p) {
 		Calendar dateCnvrt = Calendar.getInstance();
 		dateCnvrt.setTime(p);
@@ -111,7 +114,8 @@ public class JdbcUtil {
 				+ ":" + String.valueOf(mm) + ":" + String.valueOf(ss);
 		return temp;
 	}
-
+	
+	@SuppressWarnings("deprecation")
 	public static java.util.Date fromSQLStringToJavaDate(String date) {
 		java.util.Date d = new java.util.Date();
 		int year = Integer.parseInt(date.substring(0, 4)) - 1900;

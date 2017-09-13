@@ -24,12 +24,12 @@ public class AutoScheduler {
 
 	public void scheduleCurrentAuction(Auction a) throws Exception {
 		sched.start();
-		jobDetail = new JobDetail(a.getAuctionid(), sched.DEFAULT_GROUP, StartAuctionsJob.class);
+		jobDetail = new JobDetail(a.getAuctionid(), Scheduler.DEFAULT_GROUP, StartAuctionsJob.class);
 		jobData = new JobDataMap();
 		jobData.put("auctionID", a.getAuctionid());
 		jobData.put("catalogID", a.getCatalogid());
 		jobDetail.setJobDataMap(jobData);
-		triggerJob = new SimpleTrigger(a.getAuctionid(), sched.DEFAULT_GROUP,
+		triggerJob = new SimpleTrigger(a.getAuctionid(), Scheduler.DEFAULT_GROUP,
 				JdbcUtil.fromSQLStringToJavaDate(a.getStartingdate()), null, 0, 0L);
 		sched.scheduleJob(jobDetail, triggerJob);
 	}
@@ -37,12 +37,12 @@ public class AutoScheduler {
 	public void unscheduleCurrentAuction(Auction a) throws Exception {
 		sched.start();
 		String jobid = "j" + a.getAuctionid();
-		jobDetail = new JobDetail(jobid, sched.DEFAULT_GROUP, StopAuctionsJob.class);
+		jobDetail = new JobDetail(jobid, Scheduler.DEFAULT_GROUP, StopAuctionsJob.class);
 		jobData = new JobDataMap();
 		jobData.put("auctionID", a.getAuctionid());
 		jobData.put("catalogID", a.getCatalogid());
 		jobDetail.setJobDataMap(jobData);
-		triggerJob = new SimpleTrigger("j" + a.getAuctionid(), sched.DEFAULT_GROUP,
+		triggerJob = new SimpleTrigger("j" + a.getAuctionid(), Scheduler.DEFAULT_GROUP,
 				JdbcUtil.fromSQLStringToJavaDate(a.getEndingdate()), null, 0, 0L);
 		sched.scheduleJob(jobDetail, triggerJob);
 	}

@@ -6,6 +6,10 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
 public class CatalogPostForm extends ActionForm {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2098184968572774245L;
 	String userid;
 	String catalogid;
 	String startingprice;

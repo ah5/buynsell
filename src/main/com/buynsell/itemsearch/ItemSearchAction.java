@@ -14,7 +14,9 @@ import com.buynsell.businessobjects.Product;
 import com.buynsell.businessobjects.ResponseMessage;
 import com.buynsell.databaseconnection.JdbcData;
 
+@SuppressWarnings("rawtypes")
 public class ItemSearchAction extends Action {
+	
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ItemSearchForm item = (ItemSearchForm) form;

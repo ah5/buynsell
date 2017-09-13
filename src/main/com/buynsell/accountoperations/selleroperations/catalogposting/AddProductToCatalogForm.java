@@ -6,6 +6,10 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
 public class AddProductToCatalogForm extends ActionForm {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2351684053265542704L;
 	String id;
 	String name;
 	String desc;
