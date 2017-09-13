@@ -45,7 +45,7 @@ public class Mailer {
 			MimeBodyPart mbp2 = new MimeBodyPart();
 			FileDataSource fds = new FileDataSource(image);
 			mbp2.setFileName(fds.getName());
-			mbp2.setText("buyNsell Mailer Reminds you !");
+			mbp2.setText("com.buynsell Mailer Reminds you !");
 			mbp2.setDataHandler(new DataHandler(fds));
 			mbp2.setHeader("Content-ID", "<23abc@pc27>");
 

@@ -1,23 +1,19 @@
-package buyNsell.ItemSearch;
+package com.buynsell.itemsearch;
 
-import org.apache.struts.action.*;
-import javax.servlet.http.*;
+import org.apache.struts.action.ActionForm;
 
-public class ListCategoryForm extends ActionForm
-{
-	String itemCategory=null;
-	
-	public String getItemCategory()
-	{
+public class ListCategoryForm extends ActionForm {
+	String itemCategory = null;
+
+	public String getItemCategory() {
 		return this.itemCategory;
 	}
-	public void setItemCategory(String itemCategory)
-	{
-		this.itemCategory=itemCategory;
+
+	public void setItemCategory(String itemCategory) {
+		this.itemCategory = itemCategory;
 	}
-	
-	public void reset()
-	{
+
+	public void reset() {
 		this.setItemCategory(null);
 	}
 }

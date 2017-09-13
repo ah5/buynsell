@@ -1,45 +1,39 @@
-package buyNsell.UserLogin;
+package com.buynsell.userlogin;
 
-import org.apache.struts.action.*;
-import javax.servlet.http.*;
+import org.apache.struts.action.ActionForm;
 
-public class UserLoginForm extends ActionForm
-{
-	String userid=null;
-	String pass=null;
-	static boolean errorExists=false;
-	
-	public String getUserid()
-	{	
-		return this.userid;	
+public class UserLoginForm extends ActionForm {
+	String userid = null;
+	String pass = null;
+	static boolean errorExists = false;
+
+	public String getUserid() {
+		return this.userid;
 	}
-	public void setUserid(String userid)
-	{
-		this.userid=userid;
+
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
-	
-	public String getPass()
-	{
+
+	public String getPass() {
 		return this.pass;
 	}
-	public void setPass(String pass)
-	{
-		this.pass=pass;
+
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
-	
-	public void reset()
-	{
-		errorExists =false;
+
+	public void reset() {
+		errorExists = false;
 		setUserid(null);
 		setPass(null);
 	}
-	
-	public boolean validator() 
-	{
+
+	public boolean validator() {
 		if ((userid == null) || (userid.length() < 1))
-			errorExists=true;
+			errorExists = true;
 		if ((pass == null) || (pass.length() < 1))
-			errorExists=true;
+			errorExists = true;
 		return errorExists;
 	}
 }

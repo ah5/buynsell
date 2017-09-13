@@ -1,64 +1,55 @@
-package buyNsell.AccountOperations;
+package com.buynsell.accountoperations;
 
-import org.apache.struts.action.*;
-import javax.servlet.http.*;
+import org.apache.struts.action.ActionForm;
 
-public class CreditCardEditForm extends ActionForm
-{
+public class CreditCardEditForm extends ActionForm {
 	String userid;
 	String ccnumber;
 	String cctype;
 	String expmonth;
 	String expyear;
-	
-	public String getUserid()
-	{
+
+	public String getUserid() {
 		return this.userid;
 	}
-	public void setUserid(String userid)
-	{
-		this.userid=userid;
+
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
-	
-	
-	public String getCcnumber()
-	{
+
+	public String getCcnumber() {
 		return this.ccnumber;
 	}
-	public void setCcnumber(String ccnumber)
-	{
-		this.ccnumber=ccnumber;
+
+	public void setCcnumber(String ccnumber) {
+		this.ccnumber = ccnumber;
 	}
-	
-	public String getCctype()
-	{
+
+	public String getCctype() {
 		return this.cctype;
 	}
-	public void setCctype(String cctype)
-	{
-		this.cctype=cctype;
+
+	public void setCctype(String cctype) {
+		this.cctype = cctype;
 	}
-	
-	public String getExpmonth()
-	{
+
+	public String getExpmonth() {
 		return this.expmonth;
 	}
-	public void setExpmonth(String expmonth)
-	{
-		this.expmonth=expmonth;
+
+	public void setExpmonth(String expmonth) {
+		this.expmonth = expmonth;
 	}
-	
-	public String getExpyear()
-	{
+
+	public String getExpyear() {
 		return this.expyear;
 	}
-	public void setExpyear(String expyear)
-	{
-		this.expyear=expyear;
+
+	public void setExpyear(String expyear) {
+		this.expyear = expyear;
 	}
-	
-	public void reset()
-	{
+
+	public void reset() {
 		setUserid(null);
 		setCcnumber(null);
 		setCctype(null);
@@ -66,17 +57,16 @@ public class CreditCardEditForm extends ActionForm
 		setExpyear(null);
 	}
 
-	public boolean validator()
-	{
-		boolean errorExists=false;
+	public boolean validator() {
+		boolean errorExists = false;
 		if ((ccnumber == null) || (ccnumber.length() < 1))
-			errorExists=true;
+			errorExists = true;
 		if ((cctype == null) || (cctype.length() < 1))
-			errorExists=true;
+			errorExists = true;
 		if ((expmonth == null) || (expmonth.length() < 1))
-			errorExists=true;
+			errorExists = true;
 		if ((expyear == null) || (expyear.length() < 1))
-			errorExists=true;
+			errorExists = true;
 		return errorExists;
 	}
 }

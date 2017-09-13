@@ -1,25 +1,23 @@
-package buyNsell.AdminLogin;
+package com.buynsell.adminlogin;
 
-import buyNsell.BusinessObjects.*;
-import buyNsell.DatabaseConnection.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts.action.*;
-import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
 
-public class AdminDeleteUserAction extends Action
-{
-	public ActionForward execute(ActionMapping mapping,
-								ActionForm form,
-								HttpServletRequest request,
-								HttpServletResponse response)
-								throws Exception
-	{
-		Users u=(Users)request.getSession().getAttribute("selecteduser", user1);
-		
-		String temp="DELETE";
+import com.buynsell.businessobjects.Users;
+
+public class AdminDeleteUserAction extends Action {
+	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		Users u = (Users) request.getSession().getAttribute("selecteduser");
+
+		String temp = "DELETE";
 		request.getSession().setAttribute("message", temp);
-		
-		return (mapping.findForward ("success"));
+
+		return (mapping.findForward("success"));
 	}
 }
